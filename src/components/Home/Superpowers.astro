@@ -1,0 +1,124 @@
+<style>
+  @import "swiper/swiper-bundle.css";
+</style>
+
+<div class="h-48 w-full p-5 overflow-hidden relative bg-[#f49d5e]">
+  <div class="text-[36px] font-semibold text-center mb-6">Our Superpowers</div>
+  <div class="swiper-container w-full h-full">
+    <div class="swiper-wrapper flex transition-timing-linear">
+      <div class="swiper-slide flex-shrink-0 w-auto">
+        <div
+          class="w-[198px] h-[117px] flex items-center justify-center overflow-hidden mx-2.5"
+        >
+          <img
+            src="superpowersIcons/js.svg"
+            alt="JavaScript"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0 hidden dark:block"
+          />
+
+          <img
+            src="superpowersIcons/light-js.svg"
+            alt="light JavaScript"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0 block dark:hidden"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide flex-shrink-0 w-auto">
+        <div
+          class="w-[198px] h-[117px] flex items-center justify-center overflow-hidden mx-2.5"
+        >
+          <img
+            src="superpowersIcons/flutter.svg"
+            alt="Flutter"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide flex-shrink-0 w-auto">
+        <div
+          class="w-[198px] h-[117px] flex items-center justify-center overflow-hidden mx-2.5"
+        >
+          <img
+            src="superpowersIcons/postgreSQL.svg"
+            alt="PostgreSQL"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0 hidden dark:block"
+          />
+          <img
+            src="superpowersIcons/light-postgreSQL.svg"
+            alt="light PostgreSQL"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0 block dark:hidden"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide flex-shrink-0 w-auto">
+        <div
+          class="w-[198px] h-[117px] flex items-center justify-center overflow-hidden mx-2.5"
+        >
+          <img
+            src="superpowersIcons/remix.svg"
+            alt="Remix.run"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide flex-shrink-0 w-auto">
+        <div
+          class="w-[198px] h-[117px] flex items-center justify-center overflow-hidden mx-2.5"
+        >
+          <img
+            src="superpowersIcons/prisma.svg"
+            alt="Prisma"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide flex-shrink-0 w-auto">
+        <div
+          class="w-[198px] h-[117px] flex items-center justify-center overflow-hidden mx-2.5"
+        >
+          <img
+            src="superpowersIcons/mongoDB.svg"
+            alt="MongoDB"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide flex-shrink-0 w-auto">
+        <div
+          class="w-[198px] h-[117px] flex items-center justify-center overflow-hidden mx-2.5"
+        >
+          <img
+            src="superpowersIcons/ts.svg"
+            alt="TypeScript"
+            class="max-w-full max-h-full w-auto h-auto flex-shrink-0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute top-0 bottom-0 left-0 w-[300px] pointer-events-none z-10 bg-gradient-to-r dark:from-dark-background to-transparent"
+  >
+  </div>
+  <div
+    class="absolute top-0 bottom-0 right-0 w-[300px] pointer-events-none z-10 bg-gradient-to-l dark:from-dark-background to-transparent"
+  >
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay } from "swiper/modules";
+
+  new Swiper(".swiper-container", {
+    modules: [Autoplay],
+    slidesPerView: "auto",
+    spaceBetween: 200,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    speed: 3000, // Adjust speed for a smooth scroll
+  });
+</script>

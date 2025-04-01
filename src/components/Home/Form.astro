@@ -1,0 +1,117 @@
+---
+const accessKey = import.meta.env.PUBLIC_ACCESS_KEY;
+---
+
+<div
+  class="mt-10 md:mt-0 md:h-auto smLg:w-1/2 w-full shadow-2xl bg-[#1E3A8A] hover:shadow-[#d8d8d8] hover:shadow-2xl transition-transform duration-300 ease-in-out hover:border hover:border-[#d8d8d8] hover:rounded-lg"
+>
+  <div
+    class="flex justify-start pl-6 items-center border-2 border-[#d8d8d8] rounded-t-[8px] w-full h-14"
+  >
+    <p>Tell us about yourself.</p>
+  </div>
+  <div
+    class="flex-1 border-2 border-[#d8d8d8] rounded-b-[8px] w-full p-6 text-[#0b0a0a]"
+  >
+    <form class="flex flex-col space-y-4" method="POST" id="form">
+      <input type="hidden" name="access_key" value={accessKey} />
+      <label>
+        Full Name:
+        <input
+          type="text"
+          name="fullName"
+          required
+          class="border p-2 w-full mt-3 bg-[#d8d8d8] border-[#d8d8d8] rounded-[8px]"
+        />
+      </label>
+      <label>
+        Work Email:
+        <input
+          type="email"
+          name="workEmail"
+          required
+          class="border p-2 w-full mt-3 bg-[#d8d8d8] border-[#d8d8d8] rounded-[8px]"
+        />
+      </label>
+      <label>
+        Company Size:
+        <select
+          name="companySize"
+          required
+          class="border p-2 w-full mt-3 bg-[#d8d8d8] border-[#d8d8d8] rounded-[8px]"
+        >
+          <option value="">Select...</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="201-500">201-500</option>
+          <option value="500+">500+</option>
+        </select>
+      </label>
+      <label>
+        How can we help?
+        <textarea
+          name="helpMessage"
+          required
+          class="border p-2 w-full mt-3 h-32 bg-[#d8d8d8] border-[#d8d8d8] rounded-[8px]"
+        ></textarea>
+      </label>
+
+      <div class="flex flex-row md:flex-row justify-between mt-10">
+        <div>
+          <p class="text-sm">You can email us at info@NexaTech.co.lk</p>
+        </div>
+        <div>
+          <button
+            class="bg-[#F97316] text-white border-none p-2 rounded-lg cursor-pointer transition-colors duration-300 ml-auto"
+            >Send message</button
+          >
+        </div>
+      </div>
+      <div id="result"></div>
+    </form>
+  </div>
+</div>
+
+<script is:inline>
+  const form = document.getElementById("form");
+  const result = document.getElementById("result");
+
+  form.addEventListener("submit", function (e) {
+    const formData = new FormData(form);
+    e.preventDefault();
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    result.innerHTML = "Please wait...";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          result.innerHTML = json.message;
+        } else {
+          console.log(response);
+          result.innerHTML = json.message;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        result.innerHTML = "Something went wrong!";
+      })
+      .then(function () {
+        form.reset();
+        setTimeout(() => {
+          result.style.display = "none";
+        }, 3000);
+      });
+  });
+</script>

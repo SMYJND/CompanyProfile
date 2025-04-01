@@ -1,0 +1,104 @@
+---
+
+---
+
+<header
+  id="main-header"
+  class="p-4 flex items-center justify-between bg-[#1E3A8A] text-[#FFFFFF] h-20 lg:h-auto sticky top-0 z-50 w-[100%] max-w-screen-2xl mx-auto"
+>
+  <h3>NexaTech Solutions</h3>
+  <nav class="flex-1 text-center hidden smLg:block ml-16">
+    <ul class="list-none p-0 inline-block">
+      <li class="inline mr-16">
+        <a href="/" class="no-underline nav-link">Home</a>
+      </li>
+      <li class="inline mr-16">
+        <a href="/services" class="no-underline nav-link">Services</a>
+      </li>
+      <li class="inline mr-16">
+        <a href="/about-us" class="no-underline nav-link">About Us</a>
+      </li>
+      <li class="inline mr-16">
+        <a href="/blog" class="no-underline nav-link">Blog</a>
+      </li>
+    </ul>
+  </nav>
+  <a
+    href="/start-project"
+    class="py-3 px-6 border-none cursor-pointer hidden sm:block bg-[#F97316] text-[#F9F9F9] rounded-lg hover:bg-[#C0560A]"
+  >
+    Start a project
+  </a>
+</header>
+
+<!-- Mobile Sidebar Menu -->
+<nav
+  id="mobile-menu"
+  class="fixed top-0 left-0 h-full w-full bg-light-background transform -translate-x-full transition-transform duration-300 z-40 pt-10 xs:block smLg:hidden"
+>
+  <div class="flex justify-between p-5">
+    <div>
+      <img src="/path/to/your/image.jpg" alt="Company Logo" class="w-[150px]" />
+    </div>
+    <div>
+      <i
+        class="fas fa-times close-icon"
+        style="color: white; font-size: 50px;"
+        id="close-icon"
+        onclick="toggleMenu()"></i>
+    </div>
+  </div>
+  <div class="mt-10">
+    <ul class="list-none p-4 text-[25px]">
+      <li class="p-2">
+        <a href="/" class="no-underline nav-link">Home</a>
+      </li>
+      <li class="p-2">
+        <a href="/services" class="no-underline nav-link">Services</a>
+      </li>
+      <li class="p-2">
+        <a href="/about-us" class="no-underline nav-link">About Us</a>
+      </li>
+      <li class="p-2">
+        <a href="/blog" class="no-underline nav-link">Blog</a>
+      </li>
+      <li class="p-2 mt-5">
+        <button
+          class="py-2 px-4 border-none cursor-pointer bg-[#F97316] text-[#F9F9F9] rounded-lg hover:bg-[#C0560A] tablet:block"
+          >Start a project
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script is:inline>
+  const toggleMenu = () => {
+    const menu = document.getElementById("mobile-menu");
+    const header = document.getElementById("main-header");
+    if (menu && header) {
+      if (menu.classList.contains("-translate-x-full")) {
+        menu.classList.remove("-translate-x-full");
+        header.style.display = "none";
+      } else {
+        menu.classList.add("-translate-x-full");
+        header.style.display = "flex";
+      }
+    }
+  };
+  window.addEventListener("resize", () => {
+    const menu = document.getElementById("mobile-menu");
+    const header = document.getElementById("main-header");
+    if (window.innerWidth >= 640) {
+      // sm breakpoint
+      menu.classList.add("-translate-x-full");
+      header.style.display = "flex";
+    }
+  });
+  setActiveNavLink();
+</script>
+<style>
+  .nav-link.active {
+    border-bottom: 2px solid #a92323; /* Change color as needed */
+  }
+</style>

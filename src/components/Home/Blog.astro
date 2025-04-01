@@ -1,0 +1,107 @@
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .slide-in {
+    animation: slideIn 1s ease-in-out;
+  }
+
+  .hover-effect:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* .color-shadow {
+    text-shadow: 2px 2px 4px rgba(169, 35, 35, 0.5);
+  } */
+</style>
+
+<div
+  class="pt-20 text-center flex flex-col items-center fade-in pb-10 dark:bg-dark-gradient"
+>
+  <div class="mb-14 pt-2 slide-in">
+    <p class="text-sm mb-2 text-[#A5A5A5]">Read Our Blog</p>
+    <h1 class="text-3xl font-semibold">
+      Read Daily News About<br />Startup Companies
+    </h1>
+  </div>
+  <div
+    class="flex flex-col smLg:flex-row w-[90%] dark:bg-dark-background bg-[#d3d1d1] p-7 dark:border-2 rounded-[16px] slide-in hover-effect"
+  >
+    <div
+      class="xs:w-full md:w-1/2 flex items-center xs:justify-center smLg:justify-start smLg:mb-0 mb-10"
+    >
+      <img
+        src="/images/blog.svg"
+        alt="blogImage"
+        class="fade-in w-[90%] hover-effect"
+      />
+    </div>
+    <div
+      class="w-full md:w-1/2 flex items-start justify-start xs:p-10 smLg:p-0"
+    >
+      <div>
+        <h2 class="text-2xl font-bold mb-6 text-start slide-in text-[#1E3A8A]">
+          Not Another Framework
+        </h2>
+        <p class="mb-10 text-start slide-in color-shadow">
+          We brought all the Remix goodies over to React Router and made
+          improvements in the process. Now it's time to bring those improved
+          APIs back over to Remix where they started!
+        </p>
+        <hr class="border-t-1 border-[#291B1A] my-4 slide-in" />
+        <div class="flex flex-row md:flex-row justify-between pt-4 slide-in">
+          <div class="flex flex-col">
+            <div
+              class="flex flex-row md:flex-row items-center md:mb-0 slide-in"
+            >
+              <img src="images/redCheck.svg" alt="redCheck" />
+              <p class="ml-3 color-shadow">Collaboration Tools</p>
+            </div>
+            <div
+              class="flex flex-row md:flex-row items-center mt-3 md:mb-0 slide-in"
+            >
+              <img src="images/redCheck.svg" alt="redCheck" />
+              <p class="ml-3 color-shadow">Collaboration Tools</p>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row items-end slide-in">
+            <img src="images/arrow.svg" alt="arrow" class="dark:block" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-10 slide-in">
+    <a
+      class="py-3 px-6 border-none cursor-pointer hidden sm:block bg-[#F97316] text-[#F9F9F9] rounded-lg hover:bg-[#C0560A]"
+      class="px-4 py-2 rounded-[8px] transition-transform duration-300 ease-in-out"
+      href="/blog"
+    >
+      Read More
+    </a>
+  </div>
+</div>

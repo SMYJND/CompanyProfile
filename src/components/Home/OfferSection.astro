@@ -1,0 +1,23 @@
+---
+import Card from "./Card.astro";
+import { cardDataArray } from "../../data/cardData";
+---
+
+<div
+  class="offer-section w-[100%] mt-100px font-semibold flex-col items-center justify-center"
+>
+  <div
+    class="dots-container pt-[100px] pb-[100px] w-full h-full bg-[radial-gradient(#F97316,transparent_1px)] bg-[length:24px_24px] flex flex-col justify-center items-center"
+  >
+    <h2
+      class="heading text-[#100909] text-[36px] leading-[5px] mb-[24px] text-center"
+    >
+      Our Experts Will Help You In Following Fields.
+    </h2>
+    <div
+      class="cards-container flex smMd:flex-row justify-center items-center ggap-2 p-4 xs:flex-col tablet:w[80%] lg:w-[100%]"
+    >
+      {cardDataArray.map((cardData) => <Card {...cardData} />)}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+---
+import Form from "./Form.astro";
+---
+
+<div
+  id="reserveCall"
+  class="flex flex-col w-full smLg:flex-row items-center smLg:items-start smlg:justify-between h-auto md:h-auto smLg:p-20 p-5"
+>
+  <div class="flex-1 md:mb-10 smlg:w-1/2 w-full">
+    <div>
+      <h1 class="mb-2 text-2xl font-semibold md:text-base">
+        Got a project in mind?
+      </h1>
+      <h1 class="text-2xl font-semibold md:text-4xl mb-2 text-[#1E3A8A]">
+        Reserve a Call
+      </h1>
+    </div>
+
+    <div
+      class="flex flex-col mb-4 font-semibold text-light-text dark:text-[#A5A5A5]"
+    >
+      <div class="flex flex-row md:flex-row items-center md:mb-0 slide-in mt-5">
+        <p class="ml-3">An in depth session to understand your needs</p>
+      </div>
+      <div class="flex flex-row md:flex-row items-center mt-4 md:mb-0 slide-in">
+        <p class="ml-3">Learn which plan is right for your team</p>
+      </div>
+      <div class="flex flex-row md:flex-row items-center mt-4 md:mb-0 slide-in">
+        <p class="ml-3">Get onboarding help</p>
+      </div>
+    </div>
+    <div class="mt-10 dark:text-[#A5A5A5] hidden smLg:block">
+      <p>Technical support or some query?</p>
+      <button
+        class="border-none rounded-lg cursor-pointer transition-colors duration-300"
+        >Contact support</button
+      >
+    </div>
+  </div>
+  <Form />
+</div>

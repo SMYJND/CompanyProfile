@@ -1,9 +1,25 @@
 ---
 import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Home/Hero.astro";
+import OfferSection from "../components/Home/OfferSection.astro";
+import Superpowers from "../components/Home/Superpowers.astro";
+import Blog from "../components/Home/Blog.astro";
+import ReserveCall from "../components/Home/ReserveCall.astro";
+import NewsLetter from "../components/Home/NewsLetter.astro";
+import BlogFooter from "../components/Blog/BlogFooter.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html>
-  <body class="bg-gray-100">
-    <slot />
-  </body>
-</html>
+<Layout title="NexaTech Solutions" />
+<div class="w-[100%] max-w-screen-2xl">
+  <Header />
+  <Hero />
+  <OfferSection />
+  <Superpowers />
+  <Blog />
+  <ReserveCall />
+  <NewsLetter />
+  <Footer />
+</div>

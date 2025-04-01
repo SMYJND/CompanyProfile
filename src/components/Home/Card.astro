@@ -1,0 +1,54 @@
+---
+interface CardProps {
+  cardNo: number;
+  cardTitle: string;
+  listItems: string[];
+}
+
+const { cardNo, cardTitle, listItems } = Astro.props as CardProps;
+---
+
+<div
+  class="card w-[280px] h-[360px] rounded-[10px] flex flex-col shadow-2xl hover:shadow-[#FFFF] justify-between relative overflow-hidden bg-[#1E3A8A] text-[#FFFFFF] transition-transform duration-300 ease-in-out m-4"
+>
+  <div>
+    <div class="relative w-[100%]">
+      <div
+        class="absolute w-[252px] left-[-68px] top-[-56px] font-noticia font-bold text-[176px] leading-[240px] text-center tracking-[-0.08em] capitalize text-[#EDEDED] dark:text-[rgba(248,158,158,0.11)]"
+      >
+        {cardNo}
+      </div>
+      <h2 class="card-title text-[24px] p-[30px]">
+        {cardTitle}
+      </h2>
+    </div>
+  </div>
+  <div
+    class="card-body w-[212px] h-[242px] bg-[rgba(48,49,118,0.58)] rounded-[20px_0_10px_0] absolute bottom-0 right-0"
+  >
+    <ul class="list-none pl-[20px] pt-[20px]">
+      {
+        listItems.map((item: string) => (
+          <li class="flex items-center leading-[1.8] text-[16px]">{item}</li>
+        ))
+      }
+    </ul>
+  </div>
+  <style>
+    .card:hover {
+      transform: scale(1.05); /* Scale up on hover */
+    }
+
+    .card-body li {
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1; /* Fade in to full opacity */
+      }
+    }
+  </style>
+</div>
